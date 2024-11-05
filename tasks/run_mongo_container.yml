@@ -33,10 +33,9 @@
   register: mongo_conf_set
 
 - name: container | start replicaset mongo docker container
-  docker_compose:
+  community.docker.docker_compose_v2:
     project_name: db
     definition:
-      version: '2'
       services:
         mongo:
           container_name: "{{ mongo_container_name }}"
